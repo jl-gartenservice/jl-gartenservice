@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>J.L Gartenservice — Ihr grüner Partner</title>
+  <meta name="description" content="J.L Gartenservice – Rasenmähen, Unkrautentfernung, Winterdienst, Reinigung für Privat & Firmen. Kontakt: 0174 280 6456 | gartenservice.jl@gmail.com" />
+  <style>
+    :root{
+      --green-1:#0b7a3f;
+      --green-2:#0fa458;
+      --bg:#eaf7ed;
+      --card:#ffffffee;
+      --accent:#7ed489;
+      --muted:#4b5b4a;
+      --glass: rgba(255,255,255,0.6);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#dff3e5);color:var(--muted)}
+    a{color:inherit;text-decoration:none}
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(11,122,63,0.95), rgba(11,122,63,0.85));backdrop-filter: blur(4px);}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;color:white}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--green-1),var(--green-2));display:flex;align-items:center;justify-content:center;color:white;box-shadow:0 6px 18px rgba(11,122,63,0.18)}
+    nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+    nav a{padding:8px 12px;border-radius:10px;transition:all .18s;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.06)}
+
+    main{max-width:1100px;margin:28px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(43,87,39,0.08)}
+    .headline{font-size:28px;color:var(--green-1);margin:0 0 6px}
+    .sub{margin:0 0 12px;color:#2f4f3a}
+    .cta{display:flex;gap:10px}
+    .btn{background:var(--green-1);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.secondary{background:transparent;border:2px solid rgba(11,122,63,0.12);color:var(--green-1)}
+
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+    .service{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45));box-shadow:0 6px 18px rgba(57,80,54,0.06);min-height:120px}
+    .service h4{margin:6px 0 0;color:var(--green-2)}
+
+    .legal{display:grid;gap:18px;margin-top:18px}
+    .legal pre{white-space:pre-wrap;margin:0}
+
+    .toggle-title{
+      color:var(--green-1);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+      transition:color .2s;
+    }
+    .toggle-title:hover{color:var(--green-2)}
+    .arrow{
+      display:inline-block;
+      transition:transform .3s ease;
+    }
+    .arrow.open{transform:rotate(90deg)}
+
+    footer{margin:36px auto 80px;max-width:1100px;padding:0 18px;color:#314734}
+
+    .grass-wrap{position:fixed;left:0;right:0;bottom:0;height:220px;pointer-events:none;z-index:5}
+    svg.grass{width:100%;height:100%;display:block}
+
+    .seedling{transform-origin:bottom center;animation:grow 1.8s ease-out both}
+    @keyframes grow{from{transform:scaleY(0.06) translateY(30px);opacity:0}to{transform:scaleY(1) translateY(0);opacity:1}}
+
+    .blade{transform-origin:bottom center;animation:sway 4s ease-in-out infinite}
+    .blade.delay{animation-delay: -1.3s}
+    @keyframes sway{0%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}100%{transform:rotate(-3deg)}}
+
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">🌿</div>
+        <div>
+          <div style="font-size:14px;">Gartenservice</div>
+          <div style="font-size:12px;opacity:.9">J.L. — Sauber. Grün. Zuverlässig.</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Start</a></li>
+          <li><a href="#services">Leistungen</a></li>
+          <li><a href="#agb">AGB</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#impressum">Impressum</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="card">
+        <h1 class="headline">Ihr Garten — unser Auftrag</h1>
+        <p class="sub">Professioneller Gartenservice für Privat- & Gewerbekunden: Rasenmähen, Unkrautentfernung, Winterdienst, Reinigung und mehr. Schnell, sauber, zuverlässig.</p>
+        <p style="margin-top:12px;color:#2f4f3a;font-weight:700">Wir nehmen Aufträge in Königslutter (PLZ 38154) und im Umkreis von ca. 10&nbsp;km an.</p>
+
+        <div class="cta">
+          <a class="btn" href="tel:+491742806456">Anrufen: 0174 280 6456</a>
+          <a class="btn secondary" href="mailto:gartenservice.jl@gmail.com">E-Mail senden</a>
+        </div>
+
+        <div style="margin-top:14px;font-size:14px;color:#3b5b3e">Öffnungszeiten: Mo–Sa, 08:00–18:00 (Termine nach Vereinbarung)</div>
+
+        <div style="margin-top:18px">
+          <strong>Kurz & knapp</strong>
+          <ul>
+            <li>Faire Preise & transparente Angebote</li>
+            <li>Versichert & zuverlässig (auf Anfrage)*</li>
+            <li>Reinigung von Firmenarealen und privaten Grundstücken</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="font-size:20px">📞</div>
+            <div class="contact-box">
+              <div style="font-size:12px">Telefon</div>
+              <div class="phone">0174 280 6456</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="font-size:20px">✉️</div>
+            <div class="contact-box">
+              <div style="font-size:12px">E-Mail</div>
+              <div>gartenservice.jl@gmail.com</div>
+            </div>
+          </div>
+
+          <div style="margin-top:6px;font-size:14px;color:#2f4f3a">Schnelle Anfrage per Formular:</div>
+          <form id="contactForm" action="mailto:gartenservice.jl@gmail.com" method="GET" onsubmit="return prepareMail();">
+            <input name="subject" placeholder="Kurz: z. B. Angebot Rasen" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddeedd;margin-top:6px" required>
+            <textarea name="body" placeholder="Kurzer Beschrieb, Standort, gewünschter Termin" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddeedd;margin-top:8px" rows="4" required></textarea>
+            <button class="btn" type="submit" style="width:100%;margin-top:8px">Anfrage per E-Mail</button>
+          </form>
+          <div style="font-size:12px;color:#5d745e;margin-top:8px">*Bei Bedarf senden wir Ihnen Versicherungs- und Leistungsnachweise.</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" style="margin-top:26px">
+      <h2 style="color:var(--green-1);margin-bottom:6px">Unsere Leistungen</h2>
+      <p class="sub">Vielseitig, sauber und termintreu — für private Gärten und Gewerbeobjekte.</p>
+
+      <div class="services">
+        <div class="service"><div style="font-size:22px">✂️ Rasenmähen</div><h4>Regelmäßiger Schnitt & Kantenpflege</h4><p>Mechanisches Mähen, Kantenschneiden und Grasschnittabfuhr. Auf Wunsch Mulchen oder Abtransport.</p></div>
+        <div class="service"><div style="font-size:22px">🪴 Unkrautentfernung</div><h4>Manuell & nachhaltig</h4><p>Professionelle Unkrautentfernung in Beeten, Pflasterfugen und Rasenkanten — mechanisch oder thermisch.</p></div>
+        <div class="service"><div style="font-size:22px">❄️ Winterdienst</div><h4>Für Firmen & Privat</h4><p>Schnee- & Eisbeseitigung, Streudienst und Verkehrsflächenpflege — zuverlässig in der Saison.</p></div>
+        <div class="service"><div style="font-size:22px">🧹 Reinigung</div><h4>Außenbereiche & Firmengelände</h4><p>Reinigung von Gehwegen, Höfen, Parkplätzen und Grundstücksrandbereichen. Flexible Intervalle möglich.</p></div>
+        <div class="service"><div style="font-size:22px">🌱 Pflanzarbeiten</div><h4>Bepflanzung & Pflege</h4><p>Neupflanzungen, Beetpflege und saisonale Räumarbeiten — wir bringen Farbe in Ihren Garten.</p></div>
+        <div class="service"><div style="font-size:22px">🔧 Sonderaufträge</div><h4>Individuelle Lösungen</h4><p>Zäune, Laubentfernung, Heckenschnitt, Entrümpelung kleiner Flächen — fragen Sie uns!</p></div>
+      </div>
+    </section>
+
+    <!-- AGB -->
+    <section id="agb" class="legal">
+      <h2 class="toggle-title" onclick="toggleSection('agbText', this)">
+        <span class="arrow">▶</span> <span class="label">AGB anzeigen</span>
+      </h2>
+      <div id="agbText" class="card" style="display:none">
+        <pre>
+1. Geltungsbereich
+Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge über Garten- und Landschaftspflegeleistungen zwischen Gartenservice J.L. (im Folgenden: "Auftragnehmer") und dem Kunden (im Folgenden: "Auftraggeber").
+
+2. Vertragsabschluss
+Angebote sind freibleibend. Der Vertrag kommt durch schriftliche Bestätigung oder Ausführung der Leistung zustande.
+
+3. Leistungsumfang
+Leistungsumfang ergibt sich aus dem Angebot oder der Auftragsbestätigung. Zusatzarbeiten werden gesondert berechnet.
+
+4. Preise & Zahlung
+Preise verstehen sich in Euro. Sofern nicht anders vereinbart, sind Rechnungen innerhalb von 14 Tagen ohne Abzug fällig.
+
+5. Haftung
+Der Auftragnehmer haftet nur für vorsätzliche und grob fahrlässige Schäden sowie für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit.
+
+6. Stornierung
+Stornierungen sind bis 48 Stunden vor Ausführung kostenfrei möglich. Bei kurzfristigen Stornierungen können Kosten berechnet werden.
+
+7. Datenschutz
+Personenbezogene Daten werden nur zur Auftragsabwicklung genutzt. Weiteres siehe Datenschutzhinweis.
+
+8. Gerichtsstand
+Gerichtsstand ist, soweit zulässig, der Sitz des Auftragnehmers.
+
+(Änderungen vorbehalten — individuelle Anpassung empfehlenswert.)
+        </pre>
+      </div>
+    </section>
+
+    <section id="kontakt" style="margin-top:26px">
+      <h2 style="color:var(--green-1);">Kontakt</h2>
+      <div class="card">
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:240px">
+            <strong>Telefon</strong>
+            <div style="margin-top:6px"><a href="tel:+491742806456">0174 280 6456</a></div>
+            <strong style="margin-top:12px;display:block">E-Mail</strong>
+            <div style="margin-top:6px"><a href="mailto:gartenservice.jl@gmail.com">gartenservice.jl@gmail.com</a></div>
+            <strong style="margin-top:12px;display:block">Anfrage per Formular</strong>
+            <div style="margin-top:6px">Nutzen Sie das Formular oben für eine schnelle Anfrage — wir antworten zeitnah.</div>
+          </div>
+          <div style="flex:1;min-width:240px">
+            <strong>Hinweis</strong>
+            <div style="margin-top:6px">Wenn Sie eine Rechnung oder ein Angebot benötigen, geben Sie bitte Adresse und gewünschten Leistungsumfang an. Für umfangreiche Firmenaufträge erstellen wir gern ein individuelles Angebot.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impressum -->
+    <section id="impressum" style="margin-top:26px">
+      <h2 class="toggle-title" onclick="toggleSection('impText', this)">
+        <span class="arrow">▶</span> <span class="label">Impressum anzeigen</span>
+      </h2>
+      <div id="impText" class="card" style="display:none">
+        <p style="margin:0">Betreiber: <strong>J.L Gartenservice</strong></p>
+        <p style="margin:6px 0">Telefon: <a href="tel:+491742806456">0174 280 6456</a></p>
+        <p style="margin:6px 0">E-Mail: <a href="mailto:gartenservice.jl@gmail.com">gartenservice.jl@gmail.com</a></p>
+        <p style="margin:6px 0">Adresse: <em>in Bearbeitung!</em></p>
+        <p style="margin-top:10px;font-size:13px;color:#556b55">Hinweis: In Bearbeitung!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:transparent">
+      <div>© <strong>Gartenservice J.L.</strong> — Alle Rechte vorbehalten.</div>
+      <div style="font-size:13px;color:#5a705a">Telefon: <a href="tel:+491742806456">0174 280 6456</a> · <a href="mailto:gartenservice.jl@gmail.com">gartenservice.jl@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <!-- Deko-Gras -->
+  <div class="grass-wrap" aria-hidden="true">
+    <svg class="grass" viewBox="0 0 1200 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#8be09b"/>
+          <stop offset="100%" stop-color="#39a86b"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="220" fill="transparent"/>
+      <g transform="translate(40,220)">
+        <path class="blade" d="M0 0 C 10 -40 30 -60 40 -100" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path class="blade delay" d="M60 0 C 70 -40 90 -60 100 -95" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    function prepareMail(){
+      const f=document.getElementById('contactForm');
+      const s=encodeURIComponent(f.subject.value||'Anfrage Gartenservice');
+      const b=encodeURIComponent(f.body.value||'Bitte geben Sie hier Details an.');
+      window.location.href=`mailto:gartenservice.jl@gmail.com?subject=${s}&body=${b}`;
+      return false;
+    }
+
+    function toggleSection(id, header){
+      const el=document.getElementById(id);
+      const arrow=header.querySelector('.arrow');
+      const label=header.querySelector('.label');
+      const open=el.style.display==='block';
+      el.style.display=open?'none':'block';
+      arrow.classList.toggle('open',!open);
+      label.textContent=open?header.textContent.includes('AGB')?'AGB anzeigen':'Impressum anzeigen'
+                           :header.textContent.includes('AGB')?'AGB verbergen':'Impressum verbergen';
+    }
+  </script>
+</body>
+</html>
