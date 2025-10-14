@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>J.L Gartenservice — Ihr grüner Partner</title>
+  <meta name="description" content="J.L Gartenservice – Rasenmähen, Unkrautentfernung, Winterdienst, Reinigung für Privat & Firmen. Kontakt: 0174 280 6456 | gartenservice.jl@gmail.com" />
+  <style>
+    :root{
+      --green-1:#0b7a3f;
+      --green-2:#0fa458;
+      --bg:#eaf7ed;
+      --card:#ffffffee;
+      --accent:#7ed489;
+      --muted:#4b5b4a;
+      --glass: rgba(255,255,255,0.6);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#dff3e5);color:var(--muted);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    /* Header / Nav */
+    header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg, rgba(11,122,63,0.95), rgba(11,122,63,0.85));backdrop-filter: blur(4px);}
+    .nav{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;color:white;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700;min-width:0}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--green-1),var(--green-2));display:flex;align-items:center;justify-content:center;color:white;box-shadow:0 6px 18px rgba(11,122,63,0.18);flex:0 0 44px}
+    .brand .titles{min-width:0}
+    .brand .titles div:first-child{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand .titles div:last-child{font-size:12px;opacity:.9}
+    nav{display:flex;align-items:center;gap:12px}
+    /* desktop menu */
+    .menu{display:flex;gap:12px;list-style:none;margin:0;padding:0;align-items:center}
+    .menu a{padding:8px 12px;border-radius:10px;transition:all .18s;font-weight:600;display:block}
+    .menu a:hover{background:rgba(255,255,255,0.06)}
+    /* hamburger */
+    .hamburger{display:none;background:transparent;border:0;padding:8px;border-radius:10px;cursor:pointer}
+    .hamburger .bar{display:block;width:22px;height:2px;background:white;border-radius:2px;margin:4px 0;transition:transform .2s,opacity .2s}
+    /* mobile menu panel */
+    .mobile-panel{display:none;position:fixed;top:64px;right:12px;background:linear-gradient(180deg, rgba(11,122,63,0.96), rgba(11,122,63,0.92));padding:12px;border-radius:12px;box-shadow:0 12px 40px rgba(11,122,63,0.18);z-index:85}
+    .mobile-panel a{display:block;padding:10px 12px;border-radius:8px;color:white;font-weight:700}
+    .mobile-panel a:hover{background:rgba(255,255,255,0.06)}
+    /* layout */
+    main{max-width:var(--max-width);margin:28px auto;padding:0 18px}
+    .card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(43,87,39,0.08)}
+    .headline{font-size:28px;color:var(--green-1);margin:0 0 6px}
+    .sub{margin:0 0 12px;color:#2f4f3a}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--green-1);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn.secondary{background:transparent;border:2px solid rgba(11,122,63,0.12);color:var(--green-1)}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+    .service{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45));box-shadow:0 6px 18px rgba(57,80,54,0.06);min-height:120px}
+    .service h4{margin:6px 0 0;color:var(--green-2)}
+    .legal{display:grid;gap:18px;margin-top:18px}
+    .legal pre{white-space:pre-wrap;margin:0}
+    .toggle-title{
+      color:var(--green-1);
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+      transition:color .2s;
+    }
+    .toggle-title:hover{color:var(--green-2)}
+    .arrow{
+      display:inline-block;
+      transition:transform .28s ease;
+    }
+    .arrow.open{transform:rotate(90deg)}
+    footer{margin:36px auto 80px;max-width:var(--max-width);padding:0 18px;color:#314734}
+    .grass-wrap{position:fixed;left:0;right:0;bottom:0;height:220px;pointer-events:none;z-index:5}
+    svg.grass{width:100%;height:100%;display:block}
+    .seedling{transform-origin:bottom center;animation:grow 1.8s ease-out both}
+    @keyframes grow{from{transform:scaleY(0.06) translateY(30px);opacity:0}to{transform:scaleY(1) translateY(0);opacity:1}}
+    .blade{transform-origin:bottom center;animation:sway 4s ease-in-out infinite}
+    .blade.delay{animation-delay: -1.3s}
+    @keyframes sway{0%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}100%{transform:rotate(-3deg)}}
+    /* responsive tweaks */
+    @media (max-width:980px){
+      .headline{font-size:24px}
+      .nav{padding:12px 14px}
+    }
+    @media (max-width:760px){
+      .menu{display:none}
+      .hamburger{display:inline-flex}
+      .mobile-panel{display:block;min-width:200px;max-width:86vw}
+      /* compress hero spacing */
+      main{margin:18px auto;padding:0 14px}
+      .card{padding:16px}
+      .headline{font-size:20px}
+      .sub{font-size:14px}
+      .services{gap:12px}
+      .service{min-height:90px;padding:12px}
+    }
+    /* ensure toggles animate height smoothly without layout shift */
+    .collapsible{overflow:hidden;max-height:0;transition:max-height .28s ease,opacity .28s ease;padding:0}
+    .collapsible.open{padding-top:12px;max-height:1200px;opacity:1}
+    /* prevent focus outline ugly on mobile but keep for keyboard */
+    :focus{outline:2px solid rgba(11,122,63,0.18);outline-offset:2px}
+  
+/* ==== Fix für Handy-Ansicht ==== */
+@media (max-width: 980px) {
+  html, body {
+    overflow-x: hidden;   /* verhindert horizontales Wischen */
+  }
+
+  .hero {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero aside {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+/* ==== Verbesserter Handy-Fix: Formular unter Text ==== */
+@media (max-width: 980px) {
+  .hero {
+    display: flex;
+    flex-direction: column; /* Stapelt Text und Formular */
+  }
+  .hero aside {
+    order: 2; /* Formular unter Text */
+    max-width: 100%;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .hero > div {
+    order: 1;
+  }
+}
+
+
+/* ==== Komplettes Handy-Layout optimiert ==== */
+@media (max-width: 980px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 0 12px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column; /* alles untereinander */
+    align-items: stretch;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero > div,
+  .hero aside {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero aside {
+    margin-top: 24px;
+  }
+
+  .headline {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .sub, p, ul, li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  input, textarea {
+    width: 100%;
+    font-size: 15px;
+  }
+}
+
+
+/* ==== FINALER MOBILE-FIX ==== */
+@media (max-width: 980px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  main {
+    padding: 0 10px !important;
+  }
+
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    gap: 20px !important;
+  }
+
+  .hero > div,
+  .hero aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero aside {
+    margin-top: 20px !important;
+    padding: 0 12px !important;
+  }
+
+  .headline {
+    font-size: 22px !important;
+    text-align: center !important;
+  }
+
+  .sub, p, li, ul {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  .cta {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  form {
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  input, textarea {
+    width: 100% !important;
+    font-size: 15px !important;
+    border: 2px solid #0b7a3f !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-top: 8px !important;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #0fa458 !important;
+    box-shadow: 0 0 6px rgba(15,164,88,0.35) !important;
+    outline: none !important;
+    background: #fff !important;
+  }
+
+  .card {
+    padding: 16px !important;
+  }
+
+  footer {
+    text-align: center !important;
+  }
+}
+
+
+/* ==== Handy-Design wie PC (Farben & Stil beibehalten) ==== */
+@media (max-width: 980px) {
+  body {
+    background: linear-gradient(180deg, var(--bg), #dff3e5);
+    color: var(--muted);
+  }
+
+  header {
+    background: linear-gradient(180deg, rgba(11,122,63,0.95), rgba(11,122,63,0.85));
+    color: white;
+  }
+
+  .card {
+    background: var(--card);
+    box-shadow: 0 8px 30px rgba(43,87,39,0.08);
+  }
+
+  .btn {
+    background: var(--green-1);
+    color: white;
+    border: none;
+  }
+
+  .btn.secondary {
+    background: transparent;
+    border: 2px solid rgba(11,122,63,0.12);
+    color: var(--green-1);
+  }
+
+  footer {
+    background: transparent;
+    color: #314734;
+  }
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="nav" role="navigation" aria-label="Hauptnavigation">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🌿</div>
+        <div class="titles">
+          <div>Gartenservice</div>
+          <div style="opacity:.9;font-size:12px">J.L. — Sauber. Grün. Zuverlässig.</div>
+        </div>
+      </div>
+
+      <!-- Desktop menu -->
+      <nav aria-label="Seitenlinks">
+        <ul class="menu" id="desktopMenu">
+          <li><a href="#home">Start</a></li>
+          <li><a href="#services">Leistungen</a></li>
+          <li><a href="#agb">AGB</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#impressum">Impressum</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobilePanel">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Mobile panel (shown only on small screens) -->
+      <div class="mobile-panel" id="mobilePanel" aria-hidden="true" style="display:none">
+        <a href="#home" class="mobile-link">Start</a>
+        <a href="#services" class="mobile-link">Leistungen</a>
+        <a href="#agb" class="mobile-link">AGB</a>
+        <a href="#kontakt" class="mobile-link">Kontakt</a>
+        <a href="#impressum" class="mobile-link">Impressum</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero card" style="display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center">
+      <div>
+        <h1 class="headline">Ihr Garten — unser Auftrag</h1>
+        <p class="sub">Professioneller Gartenservice für Privat- & Gewerbekunden: Rasenmähen, Unkrautentfernung, Winterdienst, Reinigung und mehr. Schnell, sauber, zuverlässig.</p>
+        <p style="margin-top:12px;color:#2f4f3a;font-weight:700">Wir nehmen Aufträge in Königslutter (PLZ 38154) und im Umkreis von ca. 10&nbsp;km an.</p>
+
+        <div class="cta" style="margin-top:14px">
+          <a class="btn" href="tel:+491742806456">Anrufen: 0174 280 6456</a>
+          <a class="btn secondary" href="mailto:gartenservice.jl@gmail.com">E-Mail senden</a>
+        </div>
+
+        <div style="margin-top:18px;font-size:14px;color:#3b5b3e">Öffnungszeiten: Mo–Sa, 08:00–18:00 (Termine nach Vereinbarung)</div>
+
+        <div style="margin-top:18px">
+          <strong>Kurz & knapp</strong>
+          <ul>
+            <li>Faire Preise & transparente Angebote</li>
+            <li>Versichert & zuverlässig (auf Anfrage)*</li>
+            <li>Reinigung von Firmenarealen und privaten Grundstücken</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside style="min-width:0">
+        <div class="card" style="padding:16px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="font-size:20px">📞</div>
+              <div class="contact-box">
+                <div style="font-size:12px">Telefon</div>
+                <div class="phone">0174 280 6456</div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="font-size:20px">✉️</div>
+              <div class="contact-box">
+                <div style="font-size:12px">E-Mail</div>
+                <div>gartenservice.jl@gmail.com</div>
+              </div>
+            </div>
+
+            <div style="margin-top:6px;font-size:14px;color:#2f4f3a">Schnelle Anfrage per Formular:</div>
+            <form id="contactForm" action="mailto:gartenservice.jl@gmail.com" method="GET" onsubmit="return prepareMail();">
+              <input name="subject" placeholder="Kurz: z. B. Angebot Rasen" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddeedd;margin-top:6px" required>
+              <textarea name="body" placeholder="Kurzer Beschrieb, Standort, gewünschter Termin" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ddeedd;margin-top:8px" rows="4" required></textarea>
+              <button class="btn" type="submit" style="width:100%;margin-top:8px">Anfrage per E-Mail</button>
+            </form>
+            <div style="font-size:12px;color:#5d745e;margin-top:8px">*Bei Bedarf senden wir Ihnen Versicherungs- und Leistungsnachweise.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" style="margin-top:26px">
+      <h2 class="toggle-title" onclick="toggleSection('servicesText', this)" role="button" aria-controls="servicesText" aria-expanded="false">
+        <span class="arrow">▶</span> <span class="label">Unsere Leistungen anzeigen</span>
+      </h2>
+      <div id="servicesText" class="card collapsible" style="display:block">
+        <div class="services" style="margin-top:12px">
+          <div class="service"><div style="font-size:22px">✂️ Rasenmähen</div><h4>Regelmäßiger Schnitt & Kantenpflege</h4><p>Mechanisches Mähen, Kantenschneiden und Grasschnittabfuhr. Auf Wunsch Mulchen oder Abtransport.</p></div>
+          <div class="service"><div style="font-size:22px">🪴 Unkrautentfernung</div><h4>Manuell & nachhaltig</h4><p>Professionelle Unkrautentfernung in Beeten, Pflasterfugen und Rasenkanten — mechanisch oder thermisch.</p></div>
+          <div class="service"><div style="font-size:22px">❄️ Winterdienst</div><h4>Für Firmen & Privat</h4><p>Schnee- & Eisbeseitigung, Streudienst und Verkehrsflächenpflege — zuverlässig in der Saison.</p></div>
+          <div class="service"><div style="font-size:22px">🧹 Reinigung</div><h4>Außenbereiche & Firmengelände</h4><p>Reinigung von Gehwegen, Höfen, Parkplätzen und Grundstücksrandbereichen. Flexible Intervalle möglich.</p></div>
+          <div class="service"><div style="font-size:22px">🌱 Pflanzarbeiten</div><h4>Bepflanzung & Pflege</h4><p>Neupflanzungen, Beetpflege und saisonale Räumarbeiten — wir bringen Farbe in Ihren Garten.</p></div>
+          <div class="service"><div style="font-size:22px">🔧 Sonderaufträge</div><h4>Individuelle Lösungen</h4><p>Zäune, Laubentfernung, Heckenschnitt, Entrümpelung kleiner Flächen — fragen Sie uns!</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGB -->
+    <section id="agb" class="legal" style="margin-top:26px">
+      <h2 class="toggle-title" onclick="toggleSection('agbText', this)" role="button" aria-controls="agbText" aria-expanded="false">
+        <span class="arrow">▶</span> <span class="label">AGB anzeigen</span>
+      </h2>
+      <div id="agbText" class="card collapsible">
+        <pre>
+1. Geltungsbereich
+Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge über Garten- und Landschaftspflegeleistungen zwischen Gartenservice J.L. (im Folgenden: "Auftragnehmer") und dem Kunden (im Folgenden: "Auftraggeber").
+
+2. Vertragsabschluss
+Angebote sind freibleibend. Der Vertrag kommt durch schriftliche Bestätigung oder Ausführung der Leistung zustande.
+
+3. Leistungsumfang
+Leistungsumfang ergibt sich aus dem Angebot oder der Auftragsbestätigung. Zusatzarbeiten werden gesondert berechnet.
+
+4. Preise & Zahlung
+Preise verstehen sich in Euro. Sofern nicht anders vereinbart, sind Rechnungen innerhalb von 14 Tagen ohne Abzug fällig.
+
+5. Haftung
+Der Auftragnehmer haftet nur für vorsätzliche und grob fahrlässige Schäden sowie für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit.
+
+6. Stornierung
+Stornierungen sind bis 48 Stunden vor Ausführung kostenfrei möglich. Bei kurzfristigen Stornierungen können Kosten berechnet werden.
+
+7. Datenschutz
+Personenbezogene Daten werden nur zur Auftragsabwicklung genutzt. Weiteres siehe Datenschutzhinweis.
+
+8. Gerichtsstand
+Gerichtsstand ist, soweit zulässig, der Sitz des Auftragnehmers.
+
+(Änderungen vorbehalten — individuelle Anpassung empfehlenswert.)
+        </pre>
+      </div>
+    </section>
+
+    <section id="kontakt" style="margin-top:26px">
+      <h2 class="toggle-title" onclick="toggleSection('kontaktText', this)" role="button" aria-controls="kontaktText" aria-expanded="false">
+        <span class="arrow">▶</span> <span class="label">Kontakt anzeigen</span>
+      </h2>
+      <div id="kontaktText" class="card collapsible">
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:240px">
+            <strong>Telefon</strong>
+            <div style="margin-top:6px"><a href="tel:+491742806456">0174 280 6456</a></div>
+            <strong style="margin-top:12px;display:block">E-Mail</strong>
+            <div style="margin-top:6px"><a href="mailto:gartenservice.jl@gmail.com">gartenservice.jl@gmail.com</a></div>
+            <strong style="margin-top:12px;display:block">Anfrage per Formular</strong>
+            <div style="margin-top:6px">Nutzen Sie das Formular oben für eine schnelle Anfrage — wir antworten zeitnah.</div>
+          </div>
+          <div style="flex:1;min-width:240px">
+            <strong>Hinweis</strong>
+            <div style="margin-top:6px">Wenn Sie eine Rechnung oder ein Angebot benötigen, geben Sie bitte Adresse und gewünschten Leistungsumfang an. Für umfangreiche Firmenaufträge erstellen wir gern ein individuelles Angebot.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impressum -->
+    <section id="impressum" style="margin-top:26px">
+      <h2 class="toggle-title" onclick="toggleSection('impText', this)" role="button" aria-controls="impText" aria-expanded="false">
+        <span class="arrow">▶</span> <span class="label">Impressum anzeigen</span>
+      </h2>
+      <div id="impText" class="card collapsible">
+        <p style="margin:0">Betreiber: <strong>J.L Gartenservice</strong></p>
+        <p style="margin:6px 0">Telefon: <a href="tel:+491742806456">0174 280 6456</a></p>
+        <p style="margin:6px 0">E-Mail: <a href="mailto:gartenservice.jl@gmail.com">gartenservice.jl@gmail.com</a></p>
+        <p style="margin:6px 0">Adresse: <em>in Bearbeitung!</em></p>
+        <p style="margin-top:10px;font-size:13px;color:#556b55">Hinweis: In Bearbeitung!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:transparent">
+      <div>© <strong>Gartenservice J.L.</strong> — Alle Rechte vorbehalten.</div>
+      <div style="font-size:13px;color:#5a705a">Telefon: <a href="tel:+491742806456">0174 280 6456</a> · <a href="mailto:gartenservice.jl@gmail.com">gartenservice.jl@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <!-- Deko-Gras -->
+  <div class="grass-wrap" aria-hidden="true">
+    <svg class="grass" viewBox="0 0 1200 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#8be09b"/>
+          <stop offset="100%" stop-color="#39a86b"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="220" fill="transparent"/>
+      <g transform="translate(40,220)">
+        <path class="blade" d="M0 0 C 10 -40 30 -60 40 -100" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path class="blade delay" d="M60 0 C 70 -40 90 -60 100 -95" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    // Smooth scroll (works for both desktop and mobile)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        // close mobile menu when clicking a link
+        const mobilePanel = document.getElementById('mobilePanel');
+        const hamburger = document.getElementById('hamburgerBtn');
+        if(mobilePanel && mobilePanel.style.display !== 'none' && mobilePanel.classList.contains('open')){
+          mobilePanel.classList.remove('open');
+          mobilePanel.style.display = 'none';
+          hamburger.setAttribute('aria-expanded','false');
+          hamburger.classList.remove('is-open');
+        }
+        // normal smooth scroll
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          // small timeout so mobile panel can close visually before scroll
+          setTimeout(()=> el.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+        }
+      });
+    });
+
+    // Prepare mail from contact form
+    function prepareMail(){
+      const f=document.getElementById('contactForm');
+      const s=encodeURIComponent(f.subject.value||'Anfrage Gartenservice');
+      const b=encodeURIComponent(f.body.value||'Bitte geben Sie hier Details an.');
+      window.location.href=`mailto:gartenservice.jl@gmail.com?subject=${s}&body=${b}`;
+      return false;
+    }
+
+    // Toggle collapsible sections with smooth height transition
+    function toggleSection(id, header){
+      const el=document.getElementById(id);
+      const arrow=header.querySelector('.arrow');
+      const label=header.querySelector('.label');
+      const isOpen = el.classList.contains('open');
+      if(isOpen){
+        // close
+        el.classList.remove('open');
+        arrow.classList.remove('open');
+        header.setAttribute('aria-expanded','false');
+      } else {
+        // open
+        el.classList.add('open');
+        arrow.classList.add('open');
+        header.setAttribute('aria-expanded','true');
+      }
+      // accessible label text
+      const txt=header.textContent.includes('AGB')?'AGB':
+                header.textContent.includes('Impressum')?'Impressum':
+                header.textContent.includes('Leistungen')?'Unsere Leistungen':
+                header.textContent.includes('Kontakt')?'Kontakt':'Abschnitt';
+      label.textContent = el.classList.contains('open') ? `${txt} verbergen` : `${txt} anzeigen`;
+    }
+
+    // Mobile menu toggle
+    (function(){
+      const hamburger = document.getElementById('hamburgerBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      function openPanel(){
+        panel.style.display = 'block';
+        // small delay to allow CSS/layout
+        setTimeout(()=> panel.classList.add('open'), 12);
+        hamburger.setAttribute('aria-expanded','true');
+        hamburger.classList.add('is-open');
+        panel.setAttribute('aria-hidden','false');
+      }
+      function closePanel(){
+        panel.classList.remove('open');
+        hamburger.setAttribute('aria-expanded','false');
+        hamburger.classList.remove('is-open');
+        panel.setAttribute('aria-hidden','true');
+        // hide after transition to avoid tab focus issues
+        setTimeout(()=> panel.style.display = 'none', 260);
+      }
+
+      // initial state for mobile panel
+      if(window.matchMedia('(max-width:760px)').matches){
+        panel.style.display = 'none';
+        panel.setAttribute('aria-hidden','true');
+      } else {
+        panel.style.display = 'none';
+        panel.setAttribute('aria-hidden','true');
+      }
+
+      hamburger.addEventListener('click', e=>{
+        if(panel.classList.contains('open')) closePanel(); else openPanel();
+      });
+
+      // close mobile panel when clicking a mobile link
+      document.querySelectorAll('.mobile-link').forEach(link=>{
+        link.addEventListener('click', e=>{
+          // allow smooth scroll handler to run; close panel
+          closePanel();
+        });
+      });
+
+      // close panel on resize to desktop to avoid stuck state
+      window.addEventListener('resize', ()=>{
+        if(window.matchMedia('(min-width:761px)').matches){
+          // ensure panel is hidden in desktop layout
+          if(panel.classList.contains('open')) panel.classList.remove('open');
+          panel.style.display = 'none';
+          panel.setAttribute('aria-hidden','true');
+          hamburger.setAttribute('aria-expanded','false');
+          hamburger.classList.remove('is-open');
+        } else {
+          panel.style.display = 'none';
+          panel.setAttribute('aria-hidden','true');
+        }
+      });
+    })();
+
+    // Ensure collapsible max-height is set on load if we want defaults
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // We keep all collapsibles closed initially (no layout jumps).
+      document.querySelectorAll('.collapsible').forEach(el=>{
+        // closed by default; JS-driven open adds class 'open' which uses max-height
+        if(!el.classList.contains('open')) {
+          el.style.maxHeight = '0px';
+          el.style.opacity = '0';
+        } else {
+          el.style.maxHeight = el.scrollHeight + 'px';
+          el.style.opacity = '1';
+        }
+      });
+
+      // Observer to animate max-height properly when opening/closing
+      const setMax = (el)=>{
+        if(el.classList.contains('open')){
+          // expand to content height
+          el.style.maxHeight = el.scrollHeight + 60 + 'px';
+          el.style.opacity = '1';
+        } else {
+          el.style.maxHeight = '0px';
+          el.style.opacity = '0';
+        }
+      };
+      // attach mutation observer to each collapsible
+      document.querySelectorAll('.collapsible').forEach(el=>{
+        // when class toggles, update max-height
+        const obs = new MutationObserver(()=> setMax(el));
+        obs.observe(el,{attributes:true,attributeFilter:['class']});
+      });
+    });
+  </script>
+</body>
+</html>
